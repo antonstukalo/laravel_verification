@@ -1,0 +1,62 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Accredify Verification API",
+        "description": "API for verifying JSON files based on specific criteria.",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/verify": {
+            "post": {
+                "summary": "Verify a JSON file",
+                "operationId": "087a32f0d92c6c1f4536972c0a0c9399",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "file": {
+                                        "description": "The JSON file to be verified",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful verification",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "issuer": {
+                                                    "description": "Name of the issuer",
+                                                    "type": "string"
+                                                },
+                                                "result": {
+                                                    "description": "Verification result",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid file format"
+                    }
+                }
+            }
+        }
+    }
+}
